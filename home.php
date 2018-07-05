@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="home.css">
 	</head>
 	
-	<body>
+	<body style=" background-image: url(background.png); color: white ">
 		<nav class="navbar navbar-light bg-light">
 			<span class="navbar-text">
 				<h3> CLIENT INFORMATION</h3>
@@ -58,10 +58,11 @@ if ($con->connect_error) {
 				$city="";
 				$userId="";
 				$time="";
+				$userImage="";
 	
 	//query to fetch personal information			
 				$sql_personal_info= "select * from customer where email='$userEmail'";
-				$result_info=$con->query($sql_personal_info);
+				$result_info=$con->query($sql_personal_info);	
 				
 				
 				if($result_info->num_rows>0) {
@@ -78,7 +79,6 @@ if ($con->connect_error) {
 						$_SESSION["city"]="$city";
 						$_SESSION["id"]="$userId";
 						$_SESSION["timestamp"]="$time";
-						
 						
 					}
 				}else {

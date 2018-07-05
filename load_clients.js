@@ -8,6 +8,7 @@ $(document).ready(function(){
 function loadMoreClients() {
 	var vall = $("#result_number").val();
 	
+	
 	$.ajax({
 		type: 'post',
 		url: 'fetch.php',

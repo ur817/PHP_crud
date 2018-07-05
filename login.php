@@ -6,7 +6,7 @@
 	<head>
 		<title> Login Page </title>
 		<link rel="stylesheet" href="bootstrap.css">
-		
+		<link rel ="stylesheet" href= "login_style.css">
 		
 		<script src= "valid.js"></script>
 		<script src="jquery.js"></script>
@@ -14,25 +14,35 @@
 		
 	</head>
 	<body>
-		<nav class="navbar navbar-light bg-light">
-			<span class="navbar-text">
-				<h3> Login Page</h3>
+	<?php
+	
+	if (isset($_SESSION['email'])) {
+			header("Location:home.php");
+		}else {
+			
+		}
+	?>	
+		<nav class="navbar navbar-light bg-light" style="color:'white'">
+			<span class="navbar-text" >
+				<h3 style="color: white"> Login Page</h3>
 			</span>
 		</nav>
+		<h4 style="color:white">Simple PHP CRUD application</h4>
+	<div class= "bgimg">
 	
 	
 		<form  name="login_form" action="" method="post" onSubmit = "return loginData();">
-		
+		<div class="container">
 			<div class="form-group row">
-				<label  for="email" class="col-sm-2 col-form-label">E-mail </label>
-				<div class="col-sm-6">
+				<label  for="email" class="col-sm-4 col-form-label">E-mail </label>
+				<div class="col-sm-8">
 				<input class="form-control" type="text" id="email" name="email" placeholder="enter your e-mail" >
 			</div>
 			</div>
 		
 			<div class="form-group row">
-				<label  for ="pwd" class="col-sm-2 col-form-label">Password</label>
-				<div class="col-sm-6">
+				<label  for ="pwd" class="col-sm-4 col-form-label">Password</label>
+				<div class="col-sm-8">
 				<input  class="form-control" type="password" id ="pwd" name="password" placeholder="enter your password">
 			</div>
 			</div>
@@ -41,14 +51,15 @@
 			
 			<button  class=" btn btn-success"type="submit" name="submit" value="submit">Log In</button>
 			</div></div>
+		
 		</form>
 		
 	  
 		<p><strong>If you don't have an account yet, please register first.</strong></p>
 	    
 		<button class ="button btn btn-primary" type="button" onClick="document.location.href='signup.php'">Sign Up</button>
-		
-		
+		</div>
+		</div>
 		<?php
 		
 				if (isset($_POST['email'])) {
