@@ -1,24 +1,14 @@
-		$(".purchase").click(function(){
-	 var id= this.id;
-	 onAdd(id);
+$(document).ready(function(){
+	$("#to_cart").click(function(){
+		alert("clicked it!");
+		$.ajax({
+			url:'purchase_item.php',
+			
+			data:{q:"set"},
+			type:'POST',
+			success:function(){
+				alert("reached ajax");
+			}
+		})
 	});
-	
-
-
-
-function onAdd(id){
-	var itemid=id;
-	
-	$.ajax({
-		type:"POST",
-		url:"purchase_item.php",
-		data: {
-			'result':'itemid'
-		},
-		contentType: "application/json",
-		dataType: "json",
-		success: function(response) {
-		console.log("yes");	
-		}
-	})
-}
+});

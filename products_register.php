@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="profile_image.css">
 		<script src="modal_image.js"></script>
 	</head>
-	<body style="background-image: url(background.png); color: white  ">
+	<body>
 	<?php
 	if ($_SESSION['id']) {
 			

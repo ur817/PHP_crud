@@ -9,9 +9,10 @@
 		<script src="jquery.js"></script>
 		<link rel="stylesheet" href="profile_image.css">
 		<script src="modal_image.js"></script>
-		<script src="add_to_cart.js"></script>
+		
+
 	</head>
-	<body style="background-image: url(background.png); color: white  ">
+	<body>
 	<?php
 	if ($_SESSION['id']) {
 			
@@ -76,13 +77,14 @@ if ($con->connect_error) {
 						<td>".$product_name."</td> 
 						<td>".$product_desc."</td>
 						<td><img  id='myImg' src ='uploads/products/".$product_id.".jpg' alt='product picture'style='width =100px height=100px'></td>
-						<td>".$product_price."</td>	
-						<td><button class=' purchase btn btn-success' id='".$product_id."' name='".$product_id."'onClick=document.location.href='purchase_item.php' >Add to cart</button>
-				</tr>
+						<td>".$product_price."</td>		
+						<td><a class =' btn btn-primary' type='button' href='purchase_item.php?".$product_id."'>Add to cart</button>	</td>
+						</tr>
 		
 		";	
         }
 		echo"</table> <br>";
+		
 		
 ?>  <ul class="pagination " style="color: black background-color: red">
         <li><a href="?pageno=1">First</a></li>
@@ -93,9 +95,10 @@ if ($con->connect_error) {
             <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
         </li>
         <li><a href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
-    </ul>		
+		</ul>		<br>
+	<a style="margin:5px"class="btn btn-danger " href="personal_info.php" role="button">Go Back</a>
+		
 	</div>
-	
 		
 </body>
 </html>	

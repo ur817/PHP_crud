@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="home.css">
 	</head>
 	
-	<body style=" background-image: url(background.png); color: white ">
+	<body >
 		<nav class="navbar navbar-light bg-light">
 			<span class="navbar-text">
 				<h3> CLIENT INFORMATION</h3>
