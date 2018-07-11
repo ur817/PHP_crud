@@ -12,7 +12,7 @@
 		
 
 	</head>
-	<body>
+	<body style="background-image: url('bg_main.jpg');">
 	<?php
 	if ($_SESSION['id']) {
 			
@@ -53,8 +53,7 @@ if ($con->connect_error) {
         $total_pages = ceil($total_rows / $no_of_records_per_page);
 		echo "
 		<div class='col-md-8'>
-		<table border='1' style='width:100%';  text-align:'centre'; padding:1px ;border-collapse:collapse' >
-				<tr>
+		<table border='1'class='table'>	<tr>
 						<th><h4><strong>Product ID<strong></h4></th>
 						<th><h4><strong> Product Name</strong></h4></th> 
 						<th><h4><strong> Product Desc <strong></h4></th>
@@ -86,6 +85,7 @@ if ($con->connect_error) {
 		echo"</table> <br>";
 		
 		
+		
 ?>  <ul class="pagination " style="color: black background-color: red">
         <li><a href="?pageno=1">First</a></li>
         <li class="<?php if($pageno <= 1){ echo 'disabled'; } ?> ">
@@ -99,6 +99,40 @@ if ($con->connect_error) {
 	<a style="margin:5px"class="btn btn-danger " href="personal_info.php" role="button">Go Back</a>
 		
 	</div>
+	<div class="col-md-4">
+		<?php 
+	
+	if(isset($_SESSION['cart_items'])) {
+		echo "
+		<h3>Your Cart:</h3>
+	<table border='1'class='table' ><tr>
+    <th><h4><strong>Item<strong></h4></th>
+    <th><h4><strong>Quantity</strong></h4></th> 
+    <th><h4><strong>Price<strong></h4></th>
+  </tr>
+";  
+		$items_length = count($_SESSION['cart_items']);
+		for($x = 0; $x < $items_length; $x++) {
+			echo "<tr>
+    <td>".$_SESSION['cart_items'][$x]."</td>
+    <td>".$_SESSION['cart_number'][$x]."</td> 
+    <td>".$_SESSION['cart_price'][$x]."</td>
+  </tr>
+	";
+	
+		}
+	echo"</table> <br> <hr>";	
+	
+	}
+	
+?>
+
+<button class="btn btn-info" type="button" id="prod_checkout" onClick="document.location.href='checkout.php'">Check Out</button>
+
+<button class="btn btn-danger" type="button" id="view_to_login" onClick="document.location.href='logout.php'">Log out</button>
+		
+	</div>
+
 		
 </body>
 </html>	

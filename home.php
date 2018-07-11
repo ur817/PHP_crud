@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="home.css">
 	</head>
 	
-	<body >
+	<body style="background-image: url('bg_main.jpg');">
 		<nav class="navbar navbar-light bg-light">
 			<span class="navbar-text">
 				<h3> CLIENT INFORMATION</h3>
@@ -19,6 +19,7 @@
 	
 	    
 		<?php
+		
 		if ($_SESSION['email']) {
 			
 		}else {
@@ -87,13 +88,12 @@ if ($con->connect_error) {
 	
 		?>
 		<input class="btn btn-primary"type="submit" id="load" value="Load More Clients" >
-		<button class="btn btn-success" type="button" id="home_to_personal" onClick="document.location.href='personal_info.php'">Edit Personal Info</button>	
-		
+		<button class="btn btn-success" type="button" id="home_to_personal" onClick="document.location.href='personal_info.php'">Go to portal</button>	
+		<br><hr>
 		<br>
 		<div id="content">
 			<div id="result_para">
-				<table class="table" id="client_table">
-					<thead>
+			<table border='1'class="table" id="client_table">		<thead>
 					 <tr>
 					<th scope="col">ID</th>
 					<th scope="col">NAME</th>

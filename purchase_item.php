@@ -1,6 +1,8 @@
 <?php
  session_start();
 ?>
+
+
 <html>
 	<head>
 		<title> Add to cart</title>
@@ -8,23 +10,23 @@
 		<script src="jquery.js"></script>
 		<link rel="stylesheet" href="profile_image.css">
 		<script src="modal_image.js"></script>
-		<script src="add_to_cart.js"></script>
+	    <script src="add_to_cart.js"></script>
 		
 	</head>
-	<body>
+	<body style="background-image: url('bg_main.jpg');">
 	<?php
 	if ($_SESSION['id']) {
 			
 		}else {
 			header("Location:login.php");
 		}
+
 		
 		$product_id=$_SERVER['QUERY_STRING'];	
 	?>	
-	
-	
 
 <?php 
+
 //setting up connection
 				$host="localhost";
 				$user="root";
@@ -59,24 +61,34 @@ $res_data = mysqli_query($con,$sql);
 
   <br>
   <hr>
-  <form method="post" action="">
   <h4> Price:<?php echo $product_price;?></h4>
   <label for ="item_quantity">Quantity		</label><input type="text" style="color:black padding:50px left'"class="my-4" id="item_quantity">
-	<button class="btn btn-primary btn-sm" type="button" onclick=" addQuantity(<?php echo $product_price;?>);"> add quantity</button>
-	
-	<p class="lead"style="padding:50px left">
+  <button class="btn btn-primary btn-sm" type="button" onclick=" addQuantity(<?php echo $product_price;?>);"> add quantity</button>
+
+  <form id="cart_form" method="post" >
+  <p class="lead"style="padding:50px left">
     <label for="total_price">Total</label><input type="text" style="color:black padding:50px left'"class="my-4" id="total_price" >
 	
-	<button style="margin:5px"class="btn btn-info btn-lg"  type ="submit" id='to_cart' name ="submit">Add to Cart</button>
-	<a style="margin:5px"class="btn btn-danger btn-lg" href="view_products.php" role="button">Cancel</a>
+	<input style="margin:5px"class="btn btn-info btn-lg"  type ="submit"  name ="submit" value="submit" id="to_cart" onclick="document.location.href='view_products.php'" >
+	<a style="margin:5px"class="btn btn-danger btn-lg" href="view_products.php" role="button">Back</a>
 	
   </p>
-  </form>
+</form>
+<button class="btn btn-danger" type="button" id="home_to_login" onClick="document.location.href='logout.php'">Log out</button>
+		
+
 <script> function addQuantity(price) {
 			var total =$("#item_quantity").val()* price;
 			$("#total_price").val(total);
 			
 		}</script>
-<p id="suc"></p>	
+<div id="suc"></div>
+
+
+
+
+
+
+	
 </body>
 </html>

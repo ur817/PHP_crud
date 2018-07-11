@@ -9,9 +9,9 @@
 		<link rel="stylesheet" href="profile_image.css">
 		<script src="modal_image.js"></script>
 	</head>
-	<body>
+	<body style="background-image: url('bg_main.jpg');">
 	<?php
-	if ($_SESSION['id']) {
+	if ((isset($_SESSION['id']))||(isset($_SESSION['admin']))) {
 			
 		}else {
 			header("Location:login.php");
@@ -52,7 +52,9 @@
 			
 	
 			<input class="btn btn-success"type="submit"  id= "submit" name="submit" value="submit" > 
-			<button class="btn btn-danger" type="button"  name ="goBackToPersonal" onClick="document.location.href='personal_info.php'">Cancel</button>
+			<button class="btn btn-danger" type="button"   onClick="document.location.href='admin_home.php'">Cancel</button>
 		</form>
+		<button class="btn btn-danger" type="button" id="home_to_login" onClick="document.location.href='logout.php'">Log out</button>
+		
 	</body>
 	</html>	

@@ -28,7 +28,8 @@ $productPrice = $_POST['productprice'];
 					$newfilename = "".$id.".jpg";
 					echo "$newfilename ";
 					move_uploaded_file($_FILES["productimg"]["tmp_name"], "uploads/products/" . $newfilename);
-					header('Location:personal_info.php');
+					
+					header('Location:admin_home.php');
 						
 			
 			}

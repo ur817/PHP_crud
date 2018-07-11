@@ -11,7 +11,7 @@
 			<script src="image_validate.js"></script>
 		
 	</head>
-	<body>
+	<body style="background-image: url('bg_main.jpg');">
 	<nav class="navbar navbar-light bg-light">
 			<span class="navbar-text">
 				<h3> REGISTRATION PAGE</h3>

@@ -1,0 +1,7 @@
+<?php 
+	if (isset($_POST['q'])) {
+		echo "set";
+	}	
+	else echo "not set";
+	die();
+?>

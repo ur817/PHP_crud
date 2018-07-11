@@ -65,6 +65,15 @@
 				if (isset($_POST['email'])) {
 						$email = $_POST['email'];
 						$pwd = $_POST['password'];
+				if($email == "admin@gmail.com"){
+					if($pwd =="admin123") {
+						$_SESSION['admin']="set";
+						header("Location: admin_home.php");
+					}
+					else {
+						echo"<p> Incorrect admin credentials</p>";
+					}
+				}else {
 						$_SESSION["email"]="$email";
 						$_SESSION["password"]="$pwd";
 						
@@ -93,7 +102,7 @@ if ($con->connect_error) {
 					echo "<strong>Incorrect credentials.</strong>";
 				}
 				}
-				
+				}
 		?>
 		</div>
 		</div>

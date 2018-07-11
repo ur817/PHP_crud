@@ -20,5 +20,8 @@ $("#productclose").click(function() {
 $("#product_btn").click(function(){
 	$("#addProduct").css("display","block");
 });
+$("#bill").click(function(){
+	$("#myModal").css("display","block");
+});
 
 });

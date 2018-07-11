@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="profile_image.css">
 	<script src="modal_image.js"></script>
 </head>
-<body >
+<body style="background-image: url('bg_main.jpg');">
 <?php
 if ($_SESSION['id']) {
 			
@@ -52,10 +52,10 @@ echo "
 			</span>
 </nav>
 <br>
-
- <form name='edit_form' action='update.php' method='post' >
+<form name='edit_form' action='update.php' method='post' >
 		<div class='col-sm-6'>
-		";
+
+ ";
 $imageName = $_SESSION['id'];
 echo "
 
@@ -68,8 +68,7 @@ echo "
 </div>
 
 <hr>
-		<table border='1' style='width:100%';  text-align:'centre'; padding:1px ;border-collapse:collapse' >
-  <tr>
+	<table border='1'class='table' ><tr>
     <th><h4><strong>Name<strong></h4></th>
     <th><h4><strong> Street Address </strong></h4></th> 
     <th><h4><strong> City <strong></h4></th>
@@ -81,16 +80,29 @@ echo "
   </tr>
 </table>
 <hr>
-<button style='padding: 10px margin: 10px'class='btn btn-primary' type='button' id='product_btn' onClick=document.location.href='products_register.php'>Add products</button>
 <button style='padding: 10px margin: 10px'class='btn btn-success'  type='button' id='view_product_btn' onClick=document.location.href='view_products.php'>Purchase Products</button>
+<button style='padding: 10px margin: 10px'class='btn btn-info'  type='button' id='view_orders_btn' onClick=document.location.href='view_orders.php'>View previous orders</button>
+
+<button class='btn btn-danger' type='button' id='home_to_login' onClick=document.location.href='logout.php'>Log out</button>
+
 <br><hr>
 
+";
+
+
+if (isset($_SESSION['billmsg']) ) {
+	
+	echo "<h2>Previous Billing Succesfull.</h2>";
+	
+}
+	
+
+echo"
 </div>
 </div>
 <form name='update_form' method='post' action='update.php'>
 		<div class='col-sm-6'>
-		<h4> Enter new details here! </h4>
-		<div class='form-group row '>
+		<h2>You may fill up this form to update your details</h3>	<div class='form-group row '>
 				<label  for='username' class='col-sm-4 col-form-label'>Name </label>
 				<div class='col-sm-8'>
 				<input class='form-control' type='text' id='username' name='username' >
@@ -121,8 +133,10 @@ echo "
 		
 			
 		</form>
+		
 			
 ";
 ?>
+		
 </body>
 </html>
